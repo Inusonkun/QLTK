@@ -43,12 +43,15 @@ namespace QUANLYTIETKIEM.SystemForm.NhanVien
 
         public static string ToInsertQuery(this ClassStaff nv)
         {
-            return @"INSERT INTO NhanVien(MaNV, HoTen, GioiTinh, NgaySinh, NgayCongTac, ChucVu, ChiNhanh, SoDienThoai, Email, DiaChi, TinhTrang) VALUES (@MaNV, @HoTen, @GioiTinh, @NgaySinh, @NgayCongTac, @ChucVu, @ChiNhanh, @SoDienThoai, @Email, @DiaChi, @TinhTrang";
+            return @"INSERT INTO NhanVien(MaNV, HoTen, GioiTinh, NgaySinh, NgayCongTac, ChucVu, ChiNhanh, SoDienThoai, Email, DiaChi, TinhTrang) VALUES (@MaNV, @HoTen, @GioiTinh, @NgaySinh, @NgayCongTac, @ChucVu, @ChiNhanh, @SoDienThoai, @Email, @DiaChi, @TinhTrang)";
         }
 
         public static string ToUpdateQuery(this ClassStaff nv)
         {
-            return @"UPDATE NhanVien SET MaNV = @MaNV, HoTen = @HoTen, GioiTinh = @GioiTinh, NgaySinh = @NgaySinh, NgayCongTac = @NgayCongTac, ChucVu = @ChucVu, ChiNhanh = @ChiNhanh, SoDienThoai = @SoDienThoai, Email = @Email, DiaChi = @DiaChi, TinhTrang = @TinhTrang";
+            return @"UPDATE NhanVien SET HoTen = @HoTen, GioiTinh = @GioiTinh, NgaySinh = @NgaySinh, NgayCongTac = @NgayCongTac, ChucVu = @ChucVu, ChiNhanh = @ChiNhanh, SoDienThoai = @SoDienThoai, Email = @Email, DiaChi = @DiaChi, TinhTrang = @TinhTrang WHERE MaNV = @MaNV";
+
+            //Update thiếu where 2012
+            //1 điều nữa! Nên xài sql 2014 trở lên, nó có cái tool sql profile, có thể track đc sql query, làm rất là khỏe
         }
     }
 }
