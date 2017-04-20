@@ -1,0 +1,11 @@
+E:\Lap trinh c++\Tin Học Ngân Hàng\QUANLYTIETKIEM\QUANLYTIETKIEM\obj\Debug\QUANLYTIETKIEM.frmMain.resources
+E:\Lap trinh c++\Tin Học Ngân Hàng\QUANLYTIETKIEM\QUANLYTIETKIEM\obj\Debug\QUANLYTIETKIEM.Properties.Resources.resources
+E:\Lap trinh c++\Tin Học Ngân Hàng\QUANLYTIETKIEM\QUANLYTIETKIEM\obj\Debug\QUANLYTIETKIEM.Reports.frmReportViewer.resources
+E:\Lap trinh c++\Tin Học Ngân Hàng\QUANLYTIETKIEM\QUANLYTIETKIEM\obj\Debug\QUANLYTIETKIEM.SystemForm.Chinhanh.frmChiNhanh.resources
+E:\Lap trinh c++\Tin Học Ngân Hàng\QUANLYTIETKIEM\QUANLYTIETKIEM\obj\Debug\QUANLYTIETKIEM.SystemForm.NhanVien.frmStaff.resources
+E:\Lap trinh c++\Tin Học Ngân Hàng\QUANLYTIETKIEM\QUANLYTIETKIEM\obj\Debug\QUANLYTIETKIEM.csproj.GenerateResource.Cache
+E:\Lap trinh c++\Tin Học Ngân Hàng\QUANLYTIETKIEM\QUANLYTIETKIEM\bin\Debug\QUANLYTIETKIEM.exe.config
+E:\Lap trinh c++\Tin Học Ngân Hàng\QUANLYTIETKIEM\QUANLYTIETKIEM\bin\Debug\QUANLYTIETKIEM.exe
+E:\Lap trinh c++\Tin Học Ngân Hàng\QUANLYTIETKIEM\QUANLYTIETKIEM\bin\Debug\QUANLYTIETKIEM.pdb
+E:\Lap trinh c++\Tin Học Ngân Hàng\QUANLYTIETKIEM\QUANLYTIETKIEM\obj\Debug\QUANLYTIETKIEM.exe
+E:\Lap trinh c++\Tin Học Ngân Hàng\QUANLYTIETKIEM\QUANLYTIETKIEM\obj\Debug\QUANLYTIETKIEM.pdb
