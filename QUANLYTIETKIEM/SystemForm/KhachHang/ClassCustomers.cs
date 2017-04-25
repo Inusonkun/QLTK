@@ -23,7 +23,7 @@ namespace QUANLYTIETKIEM.SystemForm.KhachHang
 
     public static class CustomerExtension
     {
-        public static List<KeyValuePair<string, object>> ToParamesters(this ClassCustomers kh)
+        public static List<KeyValuePair<string, object>> ToParameters(this ClassCustomers kh)
         {
             var par = new List<KeyValuePair<string, object>>();
             par.Add(new KeyValuePair<string, object>("MaKH", kh.MaKH));
