@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 using QUANLYTIETKIEM.DAL;
 using QUANLYTIETKIEM.Reports;
 
@@ -57,7 +58,7 @@ namespace QUANLYTIETKIEM.SystemForm.GiaoDich
 
         private void LoadData(string str = "")
         {
-            string sql = "SELECT * FROM [GiaoDich]" + str;
+            string sql = "SELECT * FROM [Giao_Dich]" + str;
             try
             {
                 ds = da.ExecuteAsDataSetSql(sql);
@@ -86,7 +87,7 @@ namespace QUANLYTIETKIEM.SystemForm.GiaoDich
             bs.DataSource = ds.Tables[0];
             cbbSavingsID.DataSource = ds.Tables[0];
             cbbSavingsID.DisplayMember = "MaSo";
-            cbbSavingsID.ValueMember = "MaKH";
+            cbbSavingsID.ValueMember = "SoTienGoc";
         }
 
         private void CbbStaffLoad()
@@ -196,7 +197,7 @@ namespace QUANLYTIETKIEM.SystemForm.GiaoDich
             {
                 case "Thêm":
                     AddNew();
-                    this.Height = 466;
+                    this.Height = 507;
                     btAdd.Enabled = false;
                     btEdit.Enabled = false;
                     btDelete.Enabled = false;
@@ -204,7 +205,7 @@ namespace QUANLYTIETKIEM.SystemForm.GiaoDich
                     break;
                 case "Sửa":
                     EditData();
-                    this.Height = 466;
+                    this.Height = 507;
                     btAdd.Enabled = false;
                     btEdit.Enabled = false;
                     btDelete.Enabled = false;
@@ -234,7 +235,7 @@ namespace QUANLYTIETKIEM.SystemForm.GiaoDich
 
         private void btFilter_Click(object sender, EventArgs e)
         {
-            this.Height = 466;
+            this.Height = 507;
             btAdd.Enabled = false;
             btEdit.Enabled = false;
             btDelete.Enabled = false;
@@ -245,7 +246,7 @@ namespace QUANLYTIETKIEM.SystemForm.GiaoDich
 
         private void btAdd_Click(object sender, EventArgs e)
         {
-            this.Height = 466;
+            this.Height = 507;
             btAdd.Enabled = false;
             btEdit.Enabled = false;
             btDelete.Enabled = false;
@@ -256,7 +257,7 @@ namespace QUANLYTIETKIEM.SystemForm.GiaoDich
 
         private void btEdit_Click(object sender, EventArgs e)
         {
-            this.Height = 466;
+            this.Height = 507;
             btAdd.Enabled = false;
             btEdit.Enabled = false;
             btDelete.Enabled = false;
@@ -386,7 +387,63 @@ namespace QUANLYTIETKIEM.SystemForm.GiaoDich
 
         private void cbbSavingsID_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.txtCustomers.Text = cbbSavingsID.SelectedValue.ToString();
+            this.txtOriginal.Text = cbbSavingsID.SelectedValue.ToString();
+
+            string sql = "SELECT SoDu FROM SoTietKiem INNER JOIN Giao_Dich ON SoTietKiem.MaSo = Giao_Dich.SoTK" + " WHERE SoTietKiem.MaSo = '" + cbbSavingsID.DisplayMember.ToString() + "' AND Giao_Dich.SoGiaoDich = '" + txtID.Text.ToString() + "'";
+            try
+            {
+                ds = da.ExecuteAsDataSetSql(sql);
+            }
+            catch
+            {               
+            }
+
+            BindingSource bs = new BindingSource();
+            bs.DataSource = ds.Tables[0];
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                txtBalance.Text = bs[0].ToString();
+            }
+        }
+
+        private void cbbStaff_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.txtName.Text = cbbStaff.SelectedValue.ToString();
+            
+        }
+
+        private void txtRemainingMoney_TextChanged(object sender, EventArgs e)
+        {
+            
+            if(rdbtDeposit.Checked == true)
+            {
+                if(txtMoneyTransaction.Text == "" || txtBalance.Text == "")
+                {
+                    return;
+                }
+                else
+                {
+                    txtRemainingMoney.Text = (float.Parse(txtMoneyTransaction.Text) + float.Parse(txtBalance.Text)).ToString();
+                }
+            }
+            else if(rdbtWithdrawal.Checked == true)
+            {
+                if (txtMoneyTransaction.Text == "" || txtBalance.Text == "")
+                {
+                    return;
+                }
+                else
+                {
+                    txtRemainingMoney.Text = (float.Parse(txtMoneyTransaction.Text) - float.Parse(txtBalance.Text)).ToString();
+                }
+            }
+        }
+
+        private void btPrint_Click(object sender, EventArgs e)
+        {
+            frmReportViewer rpf = new frmReportViewer("RptTransaction.rpt");
+            rpf.ShowDialog();
+
         }
     }
 }

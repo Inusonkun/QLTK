@@ -14,7 +14,7 @@ namespace QUANLYTIETKIEM.SystemForm.SoTietKiem
         public float SoTienGoc { get; set; }
         public DateTime NgayMoSo { get; set; }
         public DateTime NgayDenHan { get; set; }
-        public float TienLai { get; set; }
+        public float SoDu { get; set; }
     }
 
     public static class SavingsExtension
@@ -28,19 +28,19 @@ namespace QUANLYTIETKIEM.SystemForm.SoTietKiem
             parameters.Add(new KeyValuePair<string, object>("SoTienGoc", tk.SoTienGoc));
             parameters.Add(new KeyValuePair<string, object>("NgayMoSo", tk.NgayMoSo));
             parameters.Add(new KeyValuePair<string, object>("NgayDenHan", tk.NgayDenHan));
-            parameters.Add(new KeyValuePair<string, object>("TienLai", tk.TienLai));
+            parameters.Add(new KeyValuePair<string, object>("SoDu", tk.SoDu));
 
             return parameters;
         }
 
         public static string ToInsertQuery(this ClassSavings tk)
         {
-            return @"INSERT INTO SoTietKiem(MaSo, MaKH, KyHan, SoTienGoc, NgayMoSo, NgayDenHan, TienLai) VALUES (@MaSo, @MaKH, @KyHan, @SoTienGoc, @NgayMoSo, @NgayDenHan, @TienLai)";
+            return @"INSERT INTO SoTietKiem(MaSo, MaKH, KyHan, SoTienGoc, NgayMoSo, NgayDenHan, SoDu) VALUES (@MaSo, @MaKH, @KyHan, @SoTienGoc, @NgayMoSo, @NgayDenHan, @SoDu)";
         }
 
         public static string ToUpdateQuery(this ClassSavings tk)
         {
-            return @"UPDATE SoTietKiem SET MaKH = @MaKH, KyHan = @KyHan, SoTienGoc = @SoTienGoc, NgayMoSo = @NgayMoSo, NgayDenHan = @NgayDenHan, TienLai = @TienLai WHERE MaSo = @MaSo";
+            return @"UPDATE SoTietKiem SET MaKH = @MaKH, KyHan = @KyHan, SoTienGoc = @SoTienGoc, NgayMoSo = @NgayMoSo, NgayDenHan = @NgayDenHan, SoDu = @SoDu WHERE MaSo = @MaSo";
         }
     }
 }
